@@ -19,7 +19,6 @@ function Products(props){
     const {
         products
     } = props;
-    console.log('products', products)
     const [ categories, setCategories ] = useState([
         {
             icon: 'all',
@@ -83,11 +82,9 @@ function Products(props){
 
     const scrollCategories = useRef(null);
     const slideLeft = () => {
-        console.log('scrollCategories', scrollCategories)
         scrollCategories.current.scrollLeft -= 20; 
     }
     const slideRight = () => {
-        console.log('scrollCategories', scrollCategories)
         scrollCategories.current.scrollLeft += 20; 
     }
 

@@ -8,8 +8,6 @@ import {
 function* authGoogle({ payload }){
     try {
         const authRes = yield call(AuthService.registerGoogle);
-        console.log('authRes', authRes)
-        
         const dataAuth = {
             uid: authRes.user.uid,
             accessToken: authRes.user.accessToken,
@@ -18,8 +16,7 @@ function* authGoogle({ payload }){
         }
         yield put({ type: LOGIN_ACTION, payload: true});
         yield put({ type: AUTH_GOOGLE_ACTION, payload: dataAuth});
-        const res = yield call(authRes);
-        console.log('res', res)
+        yield call(authRes);
     } catch (error) {
         yield put({ type: AUTH_ACTION_FAILED, payload: error.message });
     }
@@ -28,7 +25,6 @@ function* authGoogle({ payload }){
 function* authFacebook({ payload }){
     try {
         const authRes = yield call(AuthService.registerFacebook);
-        console.log('authRes', authRes)
         yield put({ type: AUTH_FACEBOOK_ACTION, payload: authRes});
         yield put({ type: LOGIN_ACTION, payload: true});
     } catch (error) {
@@ -39,7 +35,6 @@ function* authFacebook({ payload }){
 function* authMicrosoft({ payload }){
     try {
         const authRes = yield call(AuthService.registerMicrosoft);
-        console.log('authRes', authRes)
         yield put({ type: AUTH_MICROSOFT_ACTION, payload: authRes});
         yield put({ type: LOGIN_ACTION, payload: true});
     } catch (error) {
@@ -50,7 +45,6 @@ function* authMicrosoft({ payload }){
 function* signOut(){
     try {
         const signOutRes = yield takeEvery(AuthService.signOutFirebase);
-        console.log('signOutRes', signOutRes)
         yield put({ type: SIGNOUT_ACTION, payload: signOutRes });
     } catch (error) {
         yield put({ type: AUTH_ACTION_FAILED, payload: error.message })

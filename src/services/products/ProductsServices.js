@@ -6,7 +6,6 @@ import {
 
 const ProductService = {
     getProducts(){
-        console.log('getProducts fire base');
         return getDocs(collection(db, "products"));
     }
 }
