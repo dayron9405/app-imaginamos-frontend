@@ -11,3 +11,60 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+body::-webkit-scrollbar-thumb{
+  background: rgba(80, 80, 80, 0.61) !important;
+  border-radius: 25px !important;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3 !important;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.container::-webkit-scrollbar-thumb:active {
+  background-color: #999999 !important;
+}
+
+.container::-webkit-scrollbar-track {
+  background: #e1e1e1 !important;
+  border-radius: 4px !important;
+}
+
+.container::-webkit-scrollbar-track:hover,
+.container::-webkit-scrollbar-track:active {
+  background: #d4d4d4 !important;
+}
+
+
+.icon{
+  color: rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
+  width: 20px;
+  height: 20px;
+}
+
+.icon-button {
+  position: relative;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.icon-button:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.input-custom {
+  margin-left: 12px;
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+  border: 0;
+}

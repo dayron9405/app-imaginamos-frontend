@@ -1,0 +1,168 @@
+@keyframes expand {
+    from {
+        transform: scaleY(0);
+    }
+  
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+}
+  
+.fadeIn{
+    animation-name: fadeIn;
+    animation-duration: 0.8s !important;
+}
+
+@keyframes fadeInFast {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+}
+  
+.fadeInFast{
+    animation-name: fadeInFast;
+    animation-duration: 0.5s !important;
+}
+
+@keyframes fadeInTop {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 50%, 0);
+    }
+  
+    to{
+        opacity: 1;
+        transform: none;
+    }
+}
+  
+.fadeInTop{
+    animation-name: fadeInTop !important;
+    animation-duration: 0.8s !important;
+}
+  
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -50%, 0);
+    }
+  
+    to{
+        opacity: 1;
+        transform: none;
+    }
+}
+  
+.fadeInBottom{
+    animation-name: fadeInBottom !important;
+    animation-duration: 0.8s !important;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0.5;
+        transform: translate3d(100%, 0, 0);
+    }
+  
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+  
+.fadeInLeft{
+    animation-name: fadeInLeft;
+    animation-duration: 0.5s !important;
+}
+
+@keyframes fadeOutLeft {
+    from {
+        opacity: 1;
+        transform: none;
+    }
+  
+    to {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+}
+  
+.fadeOutLeft{
+    animation: fadeOutLeft 0.5s ease-in forwards;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0.5;
+        transform: translate3d(-100%, 0, 0);
+    }
+  
+    to{
+        opacity: 1;
+        transform: none;
+    }
+}
+  
+.fadeInRight{
+    animation-name: fadeInRight;
+    animation-duration: 0.5s !important;
+}
+  
+@keyframes fadeOutRight {
+    from {
+        opacity: 1;
+        transform: none;
+    }
+  
+    to{
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+  
+.fadeOutRight{
+    animation: fadeOutRight 0.5s ease-in forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    
+    to {
+        transform: scale(1);
+    }
+  }
+  
+  .zoomIn{
+    animation: zoomIn 0.5s ease-in forwards;
+  }
+
+
+@keyframes tremor {
+    0%   {left: 10px;}
+    20%  {left: 0px;}
+    40%  {left: 10px;}
+    60%  {left: 0px;}
+    80%  {left: 10px;}
+    100% {left: 0px;}
+  }
+  
+  .tremor{
+    position: relative;
+    animation: tremor 0.3s;
+  }

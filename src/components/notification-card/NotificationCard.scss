@@ -1,0 +1,71 @@
+.notification{
+    z-index: 999;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.493);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-card{
+        height: 280px;
+        width: 450px;
+        border-radius: 16px;
+        padding: 20px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        &-close{
+            margin-left: auto;
+        }
+
+        h1{
+            margin: 10px;
+        }
+
+        &-button{
+            cursor: pointer;
+            height: 40px;
+            width: 180px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2px;
+            margin: 8px;
+            color: white;
+            transition: all 0.5s;
+
+            &:hover{
+                opacity: 0.7;
+                position: relative;
+                animation: tremor 0.3s;
+            }
+
+            &-icon{
+                font-size: 30px;
+                color: white;
+                margin: 12px;
+            }
+            
+        }
+    }
+}
+
+
+.google{
+    background-color: rgb(219, 1, 1);
+}
+
+.facebook{
+    background-color: rgb(0, 57, 245);
+}
+
+.microsoft{
+    background-color: rgb(0, 135, 245);
+}

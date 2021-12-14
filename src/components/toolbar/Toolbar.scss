@@ -1,0 +1,78 @@
+.toolbar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-span{
+        margin-left: 3%;
+        font-weight: bold;
+        font-size: 20px;
+        letter-spacing: 0.05em;
+    }
+
+    &-input{
+        margin-left: 8%;
+        padding: 10px;
+        background-color: rgb(245, 245, 245);
+        border-radius: 15px;
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: all 0.5s;
+
+        &:hover{
+            background-color: rgb(235, 235, 235);
+        }
+    }
+
+    &-register{
+        width:120px;
+        height: 100%;
+        background-color: rgb(255, 213, 68);
+        cursor: pointer;
+        padding: 4px ;
+        border-radius: 12px;
+        margin-left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-icon{
+            margin-left: 10px;
+        }
+    }
+
+    &-logout{
+        width: 150px;
+        height: 100%;
+        background-color: rgb(255, 213, 68);
+        cursor: pointer;
+        padding: 4px ;
+        border-radius: 12px;
+        margin-left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-icon{
+            margin-left: 10px;
+        }
+    }
+
+    &-shopping{
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+
+    .toolbar{
+        &-span{
+            display: none;
+        }
+    }
+
+}

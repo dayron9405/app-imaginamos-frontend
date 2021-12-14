@@ -1,0 +1,120 @@
+.products {
+
+    &-categories{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-arrow{
+            margin: 20px;
+
+            &-left{
+                width: 15%;
+                width: 15px;
+                height: 15px;
+                transform: rotate(180deg);
+            }
+
+            &-right{
+                width: 15%;
+                width: 15px;
+                height: 15px;
+            }
+        }
+
+        &-list{
+            width: 70%;
+            height: 180px;
+            overflow: auto;
+            text-align: start;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            &::-webkit-scrollbar {
+                width: 1px;
+                height: 6px;
+            }
+        
+            &::-webkit-scrollbar-thumb{
+                background: rgba(80, 80, 80, 0.61) !important;
+                border-radius: 25px !important;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background: #b3b3b3 !important;
+                box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2) !important;
+            }
+            
+            &::-webkit-scrollbar-thumb:active {
+                background-color: #999999 !important;
+            }
+            
+            &::-webkit-scrollbar-track {
+                background: #e1e1e1 !important;
+                border-radius: 4px !important;
+            }
+            
+            &::-webkit-scrollbar-track:hover,
+            &::-webkit-scrollbar-track:active {
+                background: #d4d4d4 !important;
+            }
+        }
+    }
+
+    &-list{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        text-align: start;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    
+}
+
+.list-reduce{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 33% 33% 33% !important;
+    text-align: start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.list-reduce-total{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50% !important;
+    text-align: start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 1440px) {
+
+    .products {
+        &-list{
+            grid-template-columns: 33% 33% 33%;
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    .products {
+        &-list{
+            grid-template-columns: 50% 50%;
+        }
+    }
+}
+
+@media screen and (max-width: 770px) {
+
+    .products {
+        &-list{
+            grid-template-columns: 100%;
+        }
+    }
+}

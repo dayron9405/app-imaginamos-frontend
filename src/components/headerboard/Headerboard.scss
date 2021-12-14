@@ -1,0 +1,173 @@
+.headerboard {
+
+    &-principal{
+        height: 180px;
+        margin-top: 40px;
+        padding: 0;
+        background-color: rgba(248, 218, 218, 0.603);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-end;
+
+        &-start{
+            height: 100%;
+            width: 30%;
+            display: flex;
+            justify-content: start;
+            align-items: flex-end;
+
+            &-img{
+                padding-left: 10%;
+                width: 240px;
+                height: 210px;
+            }
+        }
+
+        &-center{
+            height: 100%;
+            width: 50%;
+            margin-left: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            &-head {
+                display: flex;
+
+                h1{
+                    color: rgb(255, 101, 39);
+                    width: auto;
+                    margin: 0;
+                    padding: 4px;
+                }
+
+                img{
+                    margin: 0;
+                    padding: 8px 0 0 8px;
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            p{
+                font-size: 17px;
+                color: rgb(99, 99, 99);
+                margin: 0;
+                padding: 4px;
+            }
+        }
+
+        &-end{
+            height: 100%;
+            width: 20%;
+            display: flex;
+            justify-content: start;
+            align-items: flex-end;
+            padding: 20px;
+
+            span{
+                color: rgb(255, 101, 39);
+                font-weight: bold;
+            }
+
+            img{
+                margin: 0;
+                padding: 8px 0 0 16px;
+                width: 20px;
+                height: 20px;
+                filter: invert(42%) sepia(49%) saturate(2056%) hue-rotate(11deg) brightness(102%) contrast(107%);
+            }
+        }
+    }
+
+    &-secondary {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img{
+                margin: 0;
+                padding: 8px 0 0 8px;
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        &-button{
+            padding: 10px 20px 10px 20px; 
+            border-radius: 25px;
+            background-color: rgb(255, 98, 35);
+            display: flex;
+            cursor: pointer;
+            transition: all 0.5s;
+
+            &-clock{
+                filter: invert(100%) sepia(98%) saturate(0%) hue-rotate(327deg) brightness(104%) contrast(101%);
+            }
+
+            span{
+                margin-left: 10px;
+                color: #ffffff;
+            }
+
+            &-arrow{
+                margin-top: 6px;
+                width: 15px;
+                height: 15px;
+                margin-left: 20px;
+                transform: rotate(90deg);
+                filter: invert(100%) sepia(98%) saturate(0%) hue-rotate(327deg) brightness(104%) contrast(101%);
+            }
+
+            &:hover{
+                background-color: rgba(240, 116, 0, 0.767);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .headerboard {
+
+        &-principal{
+            height: 330px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            &-start{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            &-center{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &-end{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
