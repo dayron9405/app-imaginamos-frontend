@@ -10,7 +10,6 @@ const initialProps = {
 }
 
 export default function(state = initialProps, action) {
-    console.log('action auth', action)
     switch (action.type) {
         case AUTH_GOOGLE_ACTION:
             return {
