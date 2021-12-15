@@ -5,6 +5,7 @@
     align-items: flex-start;
     margin: 20px;
     cursor: pointer;
+    width: 90%;
     transition: all 0.5s linear 0s;
 
     
@@ -12,14 +13,14 @@
         border-radius: 12px;
         margin: 0;
         padding: 0;
-        width: 330px;
-        height: 150px;
+        width: 100%;
+        height: calc(25vh - 10px);
         background-repeat: no-repeat;
-        background-size: 330px 150px;
+        background-size: 100% calc(25vh - 10px);
         background-position: center center;
 
         &-cart{
-            height: 150px;
+            height: calc(25vh - 10px);
             border-radius: 12px;
             display: flex;
             flex-direction: column;
@@ -40,11 +41,6 @@
                 color: white;
                 font-size: 18px;
             }
-
-            // &:hover{
-            //     animation: zoomOut 0.5s ease-in forwards !important;
-            //     background-color: rgba(0, 0, 0, 0.411);
-            // }
         }
 
         &-content{
@@ -67,7 +63,7 @@
     }
 
     &-content{
-        width: 100%;
+        width: 90%;
         margin-top: 10px;
 
         &-principal{

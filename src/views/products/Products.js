@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useRef, useEffect } from 'react';
 
@@ -73,7 +74,7 @@ function Products(props){
     }, [products])
 
     const getProductList = () => {
-        dispatch(ProductListAction())
+        dispatch(ProductListAction([]))
         // setProductsList(ProductsJson)
     }
 

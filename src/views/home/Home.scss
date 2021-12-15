@@ -25,13 +25,13 @@
         }
 
         &-head{
-            height: 300px;
+            height: 260px;
             width: auto;
             padding: 10px 50px 10px 50px !important;
         }
 
         &-content{
-            height: calc(100vh - 400px);
+            height: calc(100vh - 355px);
             overflow: auto;
             width: auto;
             padding: 10px 50px 10px 50px !important;
@@ -81,7 +81,17 @@
 
     .home{
         &-body-content{
-            margin-top: 150px;
+            margin-top: 230px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 540px) {
+
+    .home{
+        &-body-content{
+            margin-top: 260px;
         }
     }
 

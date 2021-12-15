@@ -1,11 +1,11 @@
-import { put, takeEvery, takeLatest, all, call } from 'redux-saga/effects';
+import { put, takeEvery, takeLatest, call, take, cancel, fork, cancelled } from 'redux-saga/effects';
 import AuthService from '../../../services/auth/AuthService';
-
-import { 
+import {
     AUTH_GOOGLE_ACTION, AUTH_FACEBOOK_ACTION, AUTH_MICROSOFT_ACTION, LOGIN_ACTION, SIGNOUT_ACTION, AUTH_ACTION_FAILED
 } from '../../actions/auth-action/AuthAction';
+import { STOP } from '../../actions/stop-action/StopAction';
 
-function* authGoogle({ payload }){
+function* authGoogle(){
     try {
         const authRes = yield call(AuthService.registerGoogle);
         const dataAuth = {
@@ -16,29 +16,34 @@ function* authGoogle({ payload }){
         }
         yield put({ type: LOGIN_ACTION, payload: true});
         yield put({ type: AUTH_GOOGLE_ACTION, payload: dataAuth});
-        yield call(authRes);
     } catch (error) {
-        yield put({ type: AUTH_ACTION_FAILED, payload: error.message });
+        yield put({ type: AUTH_ACTION_FAILED, payload: error.message })
+    } finally {
+        yield put({ type: STOP, payload: true })
     }
 }
 
-function* authFacebook({ payload }){
+function* authFacebook(){
     try {
         const authRes = yield call(AuthService.registerFacebook);
         yield put({ type: AUTH_FACEBOOK_ACTION, payload: authRes});
         yield put({ type: LOGIN_ACTION, payload: true});
     } catch (error) {
         yield put({ type: AUTH_ACTION_FAILED, payload: error.message })
+    } finally {
+        yield put({ type: STOP, payload: true })
     }
 }
 
-function* authMicrosoft({ payload }){
+function* authMicrosoft(){
     try {
         const authRes = yield call(AuthService.registerMicrosoft);
         yield put({ type: AUTH_MICROSOFT_ACTION, payload: authRes});
         yield put({ type: LOGIN_ACTION, payload: true});
     } catch (error) {
         yield put({ type: AUTH_ACTION_FAILED, payload: error.message })
+    } finally {
+        yield put({ type: STOP, payload: true })
     }
 }
 
@@ -48,12 +53,40 @@ function* signOut(){
         yield put({ type: SIGNOUT_ACTION, payload: signOutRes });
     } catch (error) {
         yield put({ type: AUTH_ACTION_FAILED, payload: error.message })
+    } finally {
+        yield put({ type: STOP, payload: true })
     }
 }
 
 export default function* auth(){
-    yield takeLatest(AUTH_GOOGLE_ACTION, authGoogle);
-    yield takeLatest(AUTH_FACEBOOK_ACTION, authFacebook);
-    yield takeLatest(AUTH_MICROSOFT_ACTION, authMicrosoft);
-    yield takeLatest(SIGNOUT_ACTION, signOut);
+    try {
+        while(yield take(AUTH_GOOGLE_ACTION)){
+            yield put({ type: STOP, payload: false})
+            const workerTask = yield fork(authGoogle);
+            yield take(STOP);
+            yield cancel(workerTask);
+        }
+        while(yield take(AUTH_FACEBOOK_ACTION)){
+            yield put({ type: STOP, payload: false})
+            const workerTask = yield fork(authFacebook);
+            yield take(STOP);
+            yield cancel(workerTask);
+        }
+        while(yield take(AUTH_MICROSOFT_ACTION)){
+            yield put({ type: STOP, payload: false})
+            const workerTask = yield fork(authMicrosoft);
+            yield take(STOP);
+            yield cancel(workerTask);
+        }
+        while(yield take(SIGNOUT_ACTION)){
+            yield put({ type: STOP, payload: false})
+            const workerTask = yield fork(signOut);
+            yield take(STOP);
+            yield cancel(workerTask);
+        }
+    } finally {
+        if (yield cancelled()) {
+            yield put({ type: STOP, payload: true })
+        }
+    }
 }

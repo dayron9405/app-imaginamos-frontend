@@ -2,9 +2,17 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-
+    
     &-content{
         margin-left: 8px;
+        width: calc(100% - 8px);
+
+        &-close{
+            width: calc(100% - 8px);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
     }
 
     hr{

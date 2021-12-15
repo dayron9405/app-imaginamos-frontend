@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 //redux
 import { useDispatch, connect } from 'react-redux';
 import { AddCartAction } from '../../store/actions/add-cart-action/AddCart';
+import { ShoppingCartOpenCloseAction } from '../../store/actions/sidenav-action/ShoppingCartAction';
 
 //components
 import ProductAdd from './product-add';
@@ -59,17 +60,26 @@ function Shopping(props){
         clearProductCart([]);
     }
 
+    const closeShopping = () => {
+        dispatch(ShoppingCartOpenCloseAction(false))
+    }
+
     return(
         <div className='shopping'>
             <hr className='shopping-line' />
             <div className='shopping-content'>
                 <div className='shopping-content-top'>
-                    <div className='icon-button'>
-                        <img className='icon' src={Icons.user} />
+                    <div className='shopping-content-top-close'>
+                        <span className='icon-button icon-close' onClick={closeShopping}></span>
                     </div>
-                    <span>{ count }</span>
-                    <div className='icon-button' onClick={clearCart}>
-                        <img className='icon' src={Icons.clear} />
+                    <div className='shopping-content-top-end'>
+                        <div className='icon-button'>
+                            <img className='icon' src={Icons.user} />
+                        </div>
+                        <span>{ count }</span>
+                        <div className='icon-button' onClick={clearCart}>
+                            <img className='icon' src={Icons.clear} />
+                        </div>
                     </div>
                 </div>
                 <div className='shopping-content-header'>
