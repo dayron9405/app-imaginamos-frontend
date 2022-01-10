@@ -15,6 +15,7 @@ import './Toolbar.scss'
 export default function Toolbar() {
     const dispatch = useDispatch();
     const login = useSelector(state => state.authentication.login);
+    const countCart = useSelector(state => state.countCart.count);
 
     const sidenav = useSelector(state => state.sidenav.menu);
     const MenuCloseOpenAction = (state) => dispatch(MenuOpenCloseAction(state));
@@ -37,7 +38,6 @@ export default function Toolbar() {
     const signOut = () => {
         dispatch(signOutAction());
     }
-    
 
     return (
         <div className='toolbar'> 
@@ -59,8 +59,12 @@ export default function Toolbar() {
                         <span className='toolbar-logout-icon icon-exit'></span>
                     </div>
             }
-            <span className='toolbar-shopping icon-button' onClick={handleShoppingCloseOpen}>
-                <img className='icon' src={ Icons['shopping'] } />
+            <span className={`toolbar-shopping icon-button ${countCart > 0 ? 'cart' : 'no-cart'}`} onClick={handleShoppingCloseOpen}>
+                <img className={`icon`} src={ Icons['shopping'] } />
+                { countCart > 0 
+                    ?  <span className='toolbar-shopping-tooltip'>{ countCart > 99 ? '99+' : countCart }</span>
+                    : null
+                }
             </span>
         </div>
     )

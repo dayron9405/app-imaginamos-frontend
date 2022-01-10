@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 // components
 import NotificationCard from '../../components/notification-card';
+import Alerts from '../../components/alerts';
 import Toolbar from '../../components/toolbar';
 import Headerboard from '../../components/headerboard';
 import Sidenav from '../../components/sidenav';
@@ -20,6 +21,7 @@ export default function Home(){
     const sidenav = useSelector(state => state.sidenav.menu);
     const shopping = useSelector(state => state.sidenav.cart);
     const notification = useSelector(state => state.notification.card);
+    const alerts = useSelector(state => state.alerts.active);
 
     return (
         <div className='home'>
@@ -51,6 +53,10 @@ export default function Home(){
                 <div className='home-body-content'>
                     <Products />
                 </div>
+                { alerts 
+                    ? <Alerts />
+                    : null
+                }
             </div>
             <aside 
                 className={`home-shopping ${shopping ? 'fadeInLeft' : 'fadeOutLeft'}`}

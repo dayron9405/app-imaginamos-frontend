@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 //redux
 import { useDispatch, connect } from 'react-redux';
 import { AddCartAction } from '../../store/actions/add-cart-action/AddCart';
+import { CountCartAction } from '../../store/actions/count-cart-action/CountCartAction';
 import { ShoppingCartOpenCloseAction } from '../../store/actions/sidenav-action/ShoppingCartAction';
 
 //components
@@ -42,10 +43,12 @@ function Shopping(props){
             setTotals(priceTotal);
             const countTotal = products.length > 1 ? sumtotals.countTotal : sumtotals.quantityInitial;
             setCount(countTotal);
+            dispatch(CountCartAction(countTotal));
         }else{
             setProducts(cart.listProductsCart)
             setTotals(0);
             setCount(0);
+            dispatch(CountCartAction(0));
         }
     }
 

@@ -3,6 +3,7 @@ import AuthService from '../../../services/auth/AuthService';
 import {
     AUTH_GOOGLE_ACTION, LOGIN_ACTION, AUTH_ACTION_FAILED
 } from '../../actions/auth-action/AuthAction';
+import { ALERTS_ACTION } from '../../actions/alerts-action/AlertsAction';
 import { STOP } from '../../actions/stop-action/StopAction';
 
 
@@ -16,6 +17,14 @@ function* authGoogle(){
             email: authRes.user.email,
         }
         yield put({ type: LOGIN_ACTION, payload: true});
+        yield put({ 
+            type: ALERTS_ACTION, 
+            payload: { 
+                type: 'succes', 
+                active: true, 
+                message: 'Autenticado con Google Exitosamente!!!' 
+            } 
+        });
         yield put({ type: AUTH_GOOGLE_ACTION, payload: dataAuth});
     } catch (error) {
         yield put({ type: AUTH_ACTION_FAILED, payload: error.message })

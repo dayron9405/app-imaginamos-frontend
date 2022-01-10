@@ -3,10 +3,12 @@ import AuthService from '../../../services/auth/AuthService';
 import {
     SIGNOUT_ACTION, AUTH_ACTION_FAILED
 } from '../../actions/auth-action/AuthAction';
+import { ALERTS_ACTION } from '../../actions/alerts-action/AlertsAction';
 import { STOP } from '../../actions/stop-action/StopAction';
 
 function* signOut(){
     try {
+        yield put({ type: ALERTS_ACTION, payload: { type: 'info', active: true, message: 'Cerro Sesión Exitosamente!!!' } })
         const signOutRes = yield takeEvery(AuthService.signOutFirebase);
         yield put({ type: SIGNOUT_ACTION, payload: signOutRes });
     } catch (error) {

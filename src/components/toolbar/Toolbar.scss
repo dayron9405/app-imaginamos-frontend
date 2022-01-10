@@ -64,8 +64,24 @@
 
     &-shopping{
         margin-left: 20px;
+        margin-right: 20px;
+
+        &-tooltip{
+            position: absolute;
+            padding: 3px 6px 3px 6px;
+            margin-top: -16px;
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+        }
     }
 }
+
+.cart{
+    background-color: #ffd544 !important;
+}
+
 
 @media screen and (max-width: 460px) {
 

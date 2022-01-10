@@ -15,4 +15,4 @@ export default function* rootSaga() {
         signOut(),
         products()
     ])
-  }
+}

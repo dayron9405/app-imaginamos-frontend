@@ -1,14 +1,16 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { COUNT_CART_ACTION } from '../../actions/count-cart-action/CountCartAction'
+
 const initialProps = {
-    listProductsCart: []
+    count: 0
 }
 
 export default function(state = initialProps, action) {
     switch (action.type) {
-        case 'ADD_CART_ACTION':
+        case COUNT_CART_ACTION:
             return {
                 ...state,
-                listProductsCart: action.payload
+                count: action.payload
             }
     
         default:

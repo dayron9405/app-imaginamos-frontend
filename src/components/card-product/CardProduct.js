@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 // reducer
 import { useSelector, useDispatch } from 'react-redux';
 import { AddCartAction } from '../../store/actions/add-cart-action/AddCart';
+import { alertsOpenClose } from '../../store/actions/alerts-action/AlertsAction';
 
 import NotFood from '../../assets/images/no-photo.png';
 import { Icons } from '../../utils/constantes/Icons';
@@ -34,6 +35,11 @@ export default function CardProduct(props) {
     const listProductsCart = useSelector(state => state.cart.listProductsCart);
     const addProductCart = (state) => {
         dispatch(AddCartAction(state));
+        dispatch(alertsOpenClose({ 
+            type: 'succes', 
+            active: true, 
+            message: 'Producto Agregado Exitosamente' 
+        } ))
     }
     const addProduct = () => {
         const productIndex = listProductsCart.findIndex(item => item.id === id);
